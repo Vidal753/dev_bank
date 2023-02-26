@@ -1,0 +1,15 @@
+services:
+  bankDB:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: dev_bank
+      POSTGRES_PASSWORD: dev_bank_pass
+    volumes:
+      - bankData:/var/lib/posgresql/data
+    ports:
+      - "5444:5444"
+    command: -p 5444
+
+volumes:
+  bankData:
